@@ -1,1 +1,125 @@
-<p>ng-for works!</p>
+<div class="container">
+  <div class="row">
+
+
+    <div class="col">
+      <h3>ngFor裡五個特別變數</h3>
+      <label
+        *ngFor="
+          let variable of ngForFiveVariables;
+          let Index = index;
+          let First = first;
+          let Last = last;
+          let Even = even;
+          let Odd = odd
+        "
+      >
+        {{
+          variable.variableName +
+            "\n資料型態為：" +
+            variable.datatype +
+            "\n" +
+            variable.meaning
+        }}
+      </label>
+      <h4>如何宣告並使用ngFor</h4>
+      <p>
+        在可使用ngFor的標籤內宣告 *ngFor="let ooo of xxx" ,並在使用插植法
+        xxx.abc將值呼叫出來或是賦值
+      </p>
+      <p>
+        而五個特別變數只要使用 *ngFor="let ooo = 特別變數"
+        就可以使用插值法呼叫使用
+      </p>
+      <h4>範例</h4>
+      <label
+        *ngFor="
+          let variable of ngForFiveVariables;
+          let Index = index;
+          let First = first;
+          let Last = last;
+          let Even = even;
+          let Odd = odd
+        "
+      >
+        {{
+          Index +
+            1 +
+            ".\n" +
+            variable.variableName +
+            "\n資料型態為：" +
+            variable.datatype +
+            "\n" +
+            variable.meaning
+        }}
+      </label>
+      <p>只顯示第一筆資料</p>
+      <label *ngFor="let variable of ngForFiveVariables; let First = first">
+        <span *ngIf="First">
+          {{
+            variable.variableName +
+              "\n資料型態為：" +
+              variable.datatype +
+              "\n" +
+              variable.meaning
+          }}</span
+        >
+      </label>
+      <p>只顯示最後一筆資料</p>
+      <label *ngFor="let variable of ngForFiveVariables; let Last = last">
+        <span *ngIf="Last">
+          {{
+            variable.variableName +
+              "\n資料型態為：" +
+              variable.datatype +
+              "\n" +
+              variable.meaning
+          }}</span
+        >
+      </label>
+      <p>只顯示偶數index的資料</p>
+      <label *ngFor="let variable of ngForFiveVariables; let Even = even">
+        <span *ngIf="Even">
+          {{
+            variable.variableName +
+              "\n資料型態為：" +
+              variable.datatype +
+              "\n" +
+              variable.meaning
+          }}</span
+        >
+      </label>
+      <hr />
+      <h2>
+        {{ title }}
+      </h2>
+      <ul>
+        <li *ngFor="let todolist of todolists">
+          {{
+            "地點：" +
+              todolist.location +
+              "\t" +
+              "時間：" +
+              todolist.day +
+              "\t" +
+              "行程：" +
+              todolist.do
+          }}
+        </li>
+      </ul>
+      <label for="" *ngFor="let todolist of todolists"
+        ><input type="checkbox" />{{
+          "地點：" +
+            todolist.location +
+            "\t" +
+            "時間：" +
+            todolist.day +
+            "\t" +
+            "行程：" +
+            todolist.do
+            +'\n'
+        }}</label
+      >
+    </div>
+  </div>
+</div>
