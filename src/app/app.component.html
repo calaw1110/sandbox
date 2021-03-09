@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1>Angular 學習之路</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-outline-primary btn-"
+        type="button"
+        id="btn-ngFor"
+        (click)="btnClick($event)"
+      >
+        ngFor
+      </button>
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        id="btn-ngIf"
+        (click)="btnClick($event)"
+      >
+        ngIf
+      </button>
+      <button
+        class="btn btn-outline-success"
+        type="button"
+        id="btn-ngSwitch"
+        (click)="btnClick($event)"
+      >
+        ngSwitch
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p *ngIf="btn_id !== ''">{{ "按鈕id = " + btn_id }}</p>
+    </div>
+  </div>
+  <app-ng-for *ngIf="currentPage === 'page-ngFor'"></app-ng-for>
+  <app-ng-if *ngIf="currentPage === 'page-ngIf'"></app-ng-if>
+  <app-ng-switch *ngIf="currentPage === 'page-ngSwitch'"></app-ng-switch>
+</div>
